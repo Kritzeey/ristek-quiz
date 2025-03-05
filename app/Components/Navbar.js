@@ -11,7 +11,7 @@ export default function Navbar() {
                 RISTEK QUIZ
             </a>
 
-            <button className="p-3 rounded-xl border-2 border-[#fafafa] mr-10 flex items-center justify-center text-2xl cursor-pointer hover:bg-[#fafafa] duration-250 hover:text-[#09090b]">
+            <button className="p-3 border-2 border-[#fafafa] mr-10 flex items-center justify-center text-2xl cursor-pointer hover:bg-[#fafafa] duration-250 hover:text-[#09090b]">
                 Login
             </button>
         </nav>
