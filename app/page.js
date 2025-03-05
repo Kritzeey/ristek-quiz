@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <>
-      {status === "menu" && <Menu setStatus={setStatus} />}
+      {status === "menu" && <Menu setStatus={setStatus}/>}
       {status === "quiz" && <CardContainer />}  
     </>
   );

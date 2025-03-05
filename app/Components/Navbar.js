@@ -3,7 +3,7 @@ import logo from "../Assets/Icon Inverted.svg"
 
 export default function Navbar() {
     return(
-        <nav className="font-[Roboto_Mono] font-bold p-4 flex items-center justify-between text-[#fafafa] w-screen fixed bg-[#09090b] top-0">
+        <nav className="font-[Roboto_Mono] font-bold p-4 flex items-center justify-between text-[#fafafa] w-full bg-[#09090b] fixed top-0 bg-[#09090b] z-1">
             <a className="flex items-center justify-center gap-4 ml-10 text-2xl cursor-pointer"
                 href="/"
             >

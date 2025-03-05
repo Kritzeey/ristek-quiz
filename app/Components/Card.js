@@ -8,16 +8,16 @@ export default function Card(props) {
 
             </div>
             <div className="absolute top-40 text-2xl font-[#fafafa]">
-                Quiz Title
+                {props.title}
             </div>
             <div className="absolute bottom-4 flex justify-between w-48">
                 <span className="text-[0.6rem] flex items-center justify-center">
-                    30 Questions
+                    {props.questions}
                 </span>
                 <div className="flex items-center justify-center gap-2">
                     <Image src={clock} alt="" width={16} height={16}/>
                     <span className="text-[0.6rem]">
-                        15 Minutes
+                        {props.duration}
                     </span>
                 </div>
             </div>
