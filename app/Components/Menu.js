@@ -9,7 +9,9 @@ export default function Menu() {
           <Button text="Tryout List" onClick={() => 
             window.location.href="/Quiz"
           } />
-          <Button text="Create Tryout" />
+          <Button text="Create Tryout" onClick={() =>
+            window.location.href="/Create"
+          } />
         </div>
       </div>
     </>

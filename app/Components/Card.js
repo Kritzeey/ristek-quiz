@@ -1,8 +1,8 @@
 import Image from "next/image";
-import clock from "../Assets/Clock.svg"
+import clock from "../Assets/Clock.svg";
 
 export default function Card(props) {
-    return(
+    return (
         <div className="relative rounded-xl size-64 border-2 border-[#fafafa] flex flex-col items-center justify-center">
             <div className="m-4 rounded-xl absolute top-0 h-32 w-56 bg-[#fafafa] ">
 
