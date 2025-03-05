@@ -1,16 +1,30 @@
-"use client"
 
-import { useState } from 'react';
+
 import CardContainer from "./Components/CardContainer";
 import Menu from "./Components/Menu.js";
+import { neon } from '@neondatabase/serverless';
 
 export default function Home() {
-  const [status, setStatus] = useState("menu");
+  async function create(formData) {
+    "use server";
+
+    const sql = neon(`${process.env.DATABASE_URL}`);
+    const comment = formData.get('comment');
+
+    await sql('INSERT INTO comments (comment) VALUES ($1)', [comment]);
+  }
+
+  const status = "menu";
 
   return (
     <>
-      {status === "menu" && <Menu setStatus={setStatus}/>}
+      {status === "menu" && <Menu />}
       {status === "quiz" && <CardContainer />}  
+
+      <form action={create} className="flex h-screen bg-[#fafafa]">
+        <input type="text" placeholder="write a comment" name="comment" />
+        <button type="submit">Submit</button>
+      </form>
     </>
   );
 }
