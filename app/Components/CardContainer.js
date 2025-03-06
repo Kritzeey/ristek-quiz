@@ -6,9 +6,9 @@ export default async function CardContainer() {
         "use server";
 
         const sql = neon(process.env.DATABASE_URL);
-        const data = await sql`SELECT title, description, duration FROM tryouts`
+        const data = await sql`SELECT id, title, description, duration FROM tryouts`
 
-        const items = data.map(quiz => <Card title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>)
+        const items = data.map(quiz => <Card key={quiz.id} title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>)
 
         return (
             <div className="flex flex-col text-[#fafafa] mt-32 gap-16 font-[Roboto_Mono] w-screen text-center">
