@@ -3,7 +3,7 @@ import clock from "../Assets/Clock.svg";
 
 export default function Card(props) {
     return (
-        <div className="relative rounded-xl size-64 border-2 border-[#fafafa] flex flex-col items-center justify-center">
+        <div className="relative rounded-xl size-64 border-2 border-[#fafafa] flex flex-col items-center justify-center hover:opacity-80 duration-250 cursor-pointer">
             <div className="m-4 rounded-xl absolute top-0 h-32 w-56 bg-[#fafafa] ">
 
             </div>
