@@ -2,6 +2,7 @@
 
 import Card from "./Card";
 import { neon } from "@neondatabase/serverless";
+import Link from "next/link";
 
 export default async function CardContainer() {
     try {
@@ -9,7 +10,10 @@ export default async function CardContainer() {
             const sql = neon(process.env.DATABASE_URL);
             const data = await sql`SELECT id, title, description, duration FROM tryouts`
 
-            const items = data.map(quiz => <Card key={quiz.id} title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>)
+            const items = data.map(quiz => 
+                <Link href={`../Quizpage/${quiz.id}`}>
+                    <Card key={quiz.id} title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>
+                </Link>)
 
             return items
         }
