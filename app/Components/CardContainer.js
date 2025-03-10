@@ -11,9 +11,10 @@ export default async function CardContainer() {
         const items = data.map(quiz => <Card key={quiz.id} title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>)
 
         return (
-            <div className="flex flex-col text-[#fafafa] mt-32 gap-16 font-[Roboto_Mono] w-screen text-center">
+            <div className="flex flex-col text-[#fafafa] mt-32 gap-4 font-[Roboto_Mono] w-screen text-center">
                 <span className="text-4xl">Available Quizzes</span>
-                <div className="flex flex-wrap gap-4 w-screen items-center justify-center">
+                <span className="text-xl">Can't find your quiz? Try refreshing.</span>
+                <div className="flex mt-8 flex-wrap gap-4 w-screen items-center justify-center">
                     {items}
                 </div>
             </div>
