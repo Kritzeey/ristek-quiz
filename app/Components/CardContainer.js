@@ -1,14 +1,20 @@
+"use server";
+
 import Card from "./Card";
 import { neon } from "@neondatabase/serverless";
 
 export default async function CardContainer() {
-    async function readData() {
-        "use server";
+    try {
+        async function readData() {
+            const sql = neon(process.env.DATABASE_URL);
+            const data = await sql`SELECT id, title, description, duration FROM tryouts`
 
-        const sql = neon(process.env.DATABASE_URL);
-        const data = await sql`SELECT id, title, description, duration FROM tryouts`
+            const items = data.map(quiz => <Card key={quiz.id} title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>)
 
-        const items = data.map(quiz => <Card key={quiz.id} title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>)
+            return items
+        }
+
+        const items = readData()
 
         return (
             <div className="flex flex-col text-[#fafafa] mt-32 gap-4 font-[Roboto_Mono] w-screen text-center">
@@ -19,7 +25,11 @@ export default async function CardContainer() {
                 </div>
             </div>
         );
+    } catch(e) {
+        return (
+            <div className="flex text-[#fafafa] h-screen font-[Roboto_Mono] justify-center items-center text-center">
+                It seems like there's an error.
+            </div>
+        )
     }
-
-    return readData()
 }

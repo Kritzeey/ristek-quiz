@@ -1,5 +1,5 @@
 import { neon } from "@neondatabase/serverless"
-import { SubmitButton } from "../Components/SubmitButton";
+import SubmitButton from "../Components/SubmitButton";
 
 export default async function Home() {
   async function create(formData) {
