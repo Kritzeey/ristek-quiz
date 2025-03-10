@@ -11,7 +11,7 @@ export default async function CardContainer() {
             const data = await sql`SELECT id, title, description, duration FROM tryouts`
 
             const items = data.map(quiz => 
-                <Link href={`../Quizpage/${quiz.id}`}>
+                <Link key={quiz.id} href={`../Quizpage/${quiz.id}`}>
                     <Card key={quiz.id} title={quiz.title} duration={quiz.duration + " Minutes"} questions={0 + " Questions"}/>
                 </Link>)
 
